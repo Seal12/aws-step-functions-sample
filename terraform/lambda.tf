@@ -1,54 +1,74 @@
 
 // Create archives for AWS Lambda functions which will be used for Step Function
 
-data "archive_file" "archive-power-of-number-lambda" {
+data "archive_file" "archive-assignCaseFunction" {
   type        = "zip"
-  output_path = "../power-of-number-lambda/archive.zip"
-  source_file = "../power-of-number-lambda/index.js"
+  output_path = "../src/assignCaseFunction.zip"
+  source_file = "../src/assignCaseFunction.js"
 }
 
-data "archive_file" "archive-random-number-generator-lambda" {
+data "archive_file" "archive-closeCaseFunction" {
   type        = "zip"
-  output_path = "../random-number-generator-lambda/archive.zip"
-  source_file = "../random-number-generator-lambda/index.js"
+  output_path = "../src/closeCaseFunction.zip"
+  source_file = "../src/closeCaseFunction.js"
 }
 
-// Create IAM role for AWS Lambda
-
-resource "aws_iam_role" "iam_for_lambda" {
-  name = "stepFunctionSampleLambdaIAM"
-
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
+data "archive_file" "archive-escalateCaseFunction" {
+  type        = "zip"
+  output_path = "../src/escalateCaseFunction.zip"
+  source_file = "../src/escalateCaseFunction.js"
 }
-EOF
+
+data "archive_file" "archive-openCaseFunction" {
+  type        = "zip"
+  output_path = "../src/openCaseFunction.zip"
+  source_file = "../src/openCaseFunction.js"
+}
+
+data "archive_file" "archive-workOnCaseFunction" {
+  type        = "zip"
+  output_path = "../src/workOnCaseFunction.zip"
+  source_file = "../src/workOnCaseFunction.js"
 }
 
 // Create AWS Lambda functions
 
-resource "aws_lambda_function" "power-of-number-lambda" {
-  filename         = "../power-of-number-lambda/archive.zip"
-  function_name    = "step-functions-sample-power-of-number"
-  role             = "${aws_iam_role.iam_for_lambda.arn}"
+resource "aws_lambda_function" "assignCaseFunction" {
+  filename         = "../src/assignCaseFunction.zip"
+  function_name    = "AssignCaseFunction"
+  role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs16.x"
 }
 
-resource "aws_lambda_function" "random-number-generator-lambda" {
-  filename         = "../random-number-generator-lambda/archive.zip"
-  function_name    = "step-functions-sample-random-number-generator"
-  role             = "${aws_iam_role.iam_for_lambda.arn}"
+resource "aws_lambda_function" "closeCaseFunction" {
+  filename         = "../src/closeCaseFunction.zip"
+  function_name    = "CloseCaseFunction"
+  role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs16.x"
+}
+
+resource "aws_lambda_function" "escalateCaseFunction" {
+  filename         = "../src/escalateCaseFunction.zip"
+  function_name    = "EscalateCaseFunction"
+  role             = "${aws_iam_role.lambda_basic_execution.arn}"
+  handler          = "index.handler"
+  runtime          = "nodejs16.x"
+}
+
+resource "aws_lambda_function" "openCaseFunction" {
+  filename         = "../src/openCaseFunction.zip"
+  function_name    = "OpenCaseFunction"
+  role             = "${aws_iam_role.lambda_basic_execution.arn}"
+  handler          = "index.handler"
+  runtime          = "nodejs16.x"
+}
+
+resource "aws_lambda_function" "workOnCaseFunction" {
+  filename         = "../src/workOnCaseFunction.zip"
+  function_name    = "WorkOnCaseFunction"
+  role             = "${aws_iam_role.lambda_basic_execution.arn}"
+  handler          = "index.handler"
+  runtime          = "nodejs16.x"
 }
