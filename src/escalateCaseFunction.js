@@ -1,8 +1,7 @@
-exports.handler = (event, context, callback) => {    
-  // Escalate the support case 
-  var myCaseID = event.Case;    
-  var myCaseStatus = event.Status;    
-  var myMessage = event.Message + "escalating. ";    
-  var result = {Case: myCaseID, Status : myCaseStatus, Message: myMessage};
-  callback(null, result);
-};
+exports.handler = async function(event) {
+  const myCaseID = event.Case;    
+  const myMessage = event.Message + " assigned...";    
+  const result = {Case: myCaseID, Message: myMessage};
+
+  return result;  
+}

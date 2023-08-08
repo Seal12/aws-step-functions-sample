@@ -1,7 +1,8 @@
-exports.handler = (event, context, callback) => {
+exports.handler = async function(event) {
   // Create a support case using the input as the case ID, then return a confirmation message   
- var myCaseID = event.inputCaseID;
- var myMessage = "Case " + myCaseID + ": opened...";   
- var result = {Case: myCaseID, Message: myMessage};
-callback(null, result);
-};
+  const myCaseID = event.inputCaseID;
+  const myMessage = "Case " + myCaseID + ": opened...";   
+  const result = {Case: myCaseID, Message: myMessage};
+
+  return result;
+}

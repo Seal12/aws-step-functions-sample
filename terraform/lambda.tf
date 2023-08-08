@@ -38,7 +38,7 @@ resource "aws_lambda_function" "assignCaseFunction" {
   function_name    = "AssignCaseFunction"
   role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "closeCaseFunction" {
@@ -46,7 +46,7 @@ resource "aws_lambda_function" "closeCaseFunction" {
   function_name    = "CloseCaseFunction"
   role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "escalateCaseFunction" {
@@ -54,7 +54,7 @@ resource "aws_lambda_function" "escalateCaseFunction" {
   function_name    = "EscalateCaseFunction"
   role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "openCaseFunction" {
@@ -62,7 +62,7 @@ resource "aws_lambda_function" "openCaseFunction" {
   function_name    = "OpenCaseFunction"
   role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "workOnCaseFunction" {
@@ -70,5 +70,5 @@ resource "aws_lambda_function" "workOnCaseFunction" {
   function_name    = "WorkOnCaseFunction"
   role             = "${aws_iam_role.lambda_basic_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
 }
