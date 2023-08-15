@@ -1,4 +1,5 @@
 .DS_Store
+build/
 
 # Local .terraform directories
 **/.terraform/*
@@ -9,3 +10,4 @@
 
 # Archived Lambda
 archive.zip
+*.zip

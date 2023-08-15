@@ -4,6 +4,8 @@
   "description": "A simple AWS Step Functions state machine that automates a call center support session.",
   "main": "index.js",
   "scripts": {
+    "build:clean": "rm -rf build/",
+    "build": "sh scripts/build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
