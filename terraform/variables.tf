@@ -7,7 +7,6 @@ variable "aws_region" {
 variable "aws_credential_profile" {
   type = string
   description = "AWS Profile With Admin Access"
-  default = "aws_seal"
 }
 
 variable "phone_number_for_notification" {
