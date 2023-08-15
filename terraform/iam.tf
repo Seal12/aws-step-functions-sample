@@ -2,7 +2,7 @@
 // Create IAM role for AWS Lambda
 
 resource "aws_iam_role" "lambda_basic_execution" {
-  name = "StepFunctionSampleLambdaIAM"
+  name = "LambdaBasicExecutionIAM"
 
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
@@ -20,7 +20,7 @@ resource "aws_iam_role" "lambda_basic_execution" {
 }
 
 resource "aws_iam_role" "step_functions_basic_execution" {
-  name = "stepFunctionSampleLambdaIAM"
+  name = "StepFunctionSampleLambdaIAM"
 
   assume_role_policy = jsonencode({
     "Version" : "2012-10-17",
