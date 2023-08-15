@@ -1,18 +1,18 @@
 variable "aws_region" {
-  type = string
+  type        = string
   description = "Specified AWS Region"
-  default = "af-south-1"
+  default     = "af-south-1"
 }
 
 variable "aws_credential_profile" {
-  type = string
+  type        = string
   description = "AWS Profile With Admin Access"
 }
 
 variable "phone_number_for_notification" {
-  type = string
+  type        = string
   description = "Valid Handphone number for notification"
-  default = "0712345678"
+  default     = "0712345678"
 }
 
 

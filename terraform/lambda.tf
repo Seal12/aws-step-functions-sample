@@ -34,41 +34,41 @@ data "archive_file" "archive-workOnCaseFunction" {
 // Create AWS Lambda functions
 
 resource "aws_lambda_function" "assignCaseFunction" {
-  filename         = "../src/assignCaseFunction.zip"
-  function_name    = "AssignCaseFunction"
-  role             = "${aws_iam_role.lambda_basic_execution.arn}"
-  handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  filename      = "../build/assignCaseFunction.zip"
+  function_name = "AssignCaseFunction"
+  role          = aws_iam_role.lambda_basic_execution.arn
+  handler       = "index.handler"
+  runtime       = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "closeCaseFunction" {
-  filename         = "../src/closeCaseFunction.zip"
-  function_name    = "CloseCaseFunction"
-  role             = "${aws_iam_role.lambda_basic_execution.arn}"
-  handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  filename      = "../build/closeCaseFunction.zip"
+  function_name = "CloseCaseFunction"
+  role          = aws_iam_role.lambda_basic_execution.arn
+  handler       = "index.handler"
+  runtime       = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "escalateCaseFunction" {
-  filename         = "../src/escalateCaseFunction.zip"
-  function_name    = "EscalateCaseFunction"
-  role             = "${aws_iam_role.lambda_basic_execution.arn}"
-  handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  filename      = "../build/escalateCaseFunction.zip"
+  function_name = "EscalateCaseFunction"
+  role          = aws_iam_role.lambda_basic_execution.arn
+  handler       = "index.handler"
+  runtime       = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "openCaseFunction" {
-  filename         = "../src/openCaseFunction.zip"
-  function_name    = "OpenCaseFunction"
-  role             = "${aws_iam_role.lambda_basic_execution.arn}"
-  handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  filename      = "../build/openCaseFunction.zip"
+  function_name = "OpenCaseFunction"
+  role          = aws_iam_role.lambda_basic_execution.arn
+  handler       = "index.handler"
+  runtime       = "nodejs18.x"
 }
 
 resource "aws_lambda_function" "workOnCaseFunction" {
-  filename         = "../src/workOnCaseFunction.zip"
-  function_name    = "WorkOnCaseFunction"
-  role             = "${aws_iam_role.lambda_basic_execution.arn}"
-  handler          = "index.handler"
-  runtime          = "nodejs18.x"
+  filename      = "../build/workOnCaseFunction.zip"
+  function_name = "WorkOnCaseFunction"
+  role          = aws_iam_role.lambda_basic_execution.arn
+  handler       = "index.handler"
+  runtime       = "nodejs18.x"
 }
